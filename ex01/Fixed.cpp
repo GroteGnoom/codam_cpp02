@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cmath>
 
-#defi
 /*
 void print_bits(Fixed a) {
 	int bits = a.getRawBits();
@@ -22,24 +21,25 @@ Fixed::Fixed(const float f) {
 	int ipart = (int)f;
 	float fpart = f - ipart;
 	std::cout << "Float constructor called" << std::endl;
-	_fp = (ipart << 16) + (fpart * 65536);
+	std::cout << fpart << std::endl;
+	_fp = (ipart << _fract) + roundf((fpart * (1 << _fract)));
 }
 
 Fixed::Fixed(const int i) {
 	std::cout << "Int constructor called" << std::endl;
-	_fp = i << 16;
+	_fp = i << _fract;
 }
 
 float Fixed::toFloat( void ) const {
-	float ipart = _fp >> 16;
+	float ipart = _fp >> _fract;
 	int shifted;
-	shifted = ((int)ipart << 16);
-	float fpart = (float)(_fp - shifted) / 65536.;
+	shifted = ((int)ipart << _fract);
+	float fpart = (float)(_fp - shifted) / (float)(1 << _fract);
 	return ipart + fpart;
 }
 
 int	Fixed::toInt( void ) const {
-	return _fp >> 16;
+	return _fp >> _fract;
 }	
 
 Fixed::Fixed(const Fixed &fixed) {

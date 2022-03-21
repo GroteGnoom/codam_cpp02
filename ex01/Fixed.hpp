@@ -1,7 +1,5 @@
 #include <iostream>
 
-# define intbits() (32 - _fract)
-
 class Fixed {
 	public:
 		Fixed();
@@ -10,7 +8,7 @@ class Fixed {
 		Fixed(const Fixed &fixed);
 		Fixed &operator=(const Fixed &other);
 		~Fixed();
-		int getRawBits( void ) const;
+		int getRawBits(void) const;
 		void setRawBits( int const raw);
 		int toInt( void ) const;
 		float toFloat( void ) const;
