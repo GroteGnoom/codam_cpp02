@@ -6,6 +6,5 @@ my_*
 *.~
 *.dSYM
 tags
-ex00/fixed
-ex01/fixed
+*/fixed
 aantekeningen
