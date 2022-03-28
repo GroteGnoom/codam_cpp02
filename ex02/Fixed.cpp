@@ -21,7 +21,6 @@ Fixed::Fixed(const float f) {
 	int ipart = (int)f;
 	float fpart = f - ipart;
 	std::cout << "Float constructor called" << std::endl;
-	//std::cout << fpart << std::endl;
 	_fp = (ipart << _fract) + roundf((fpart * (1 << _fract)));
 }
 
