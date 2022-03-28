@@ -4,6 +4,7 @@ INC = Fixed.hpp
 
 ifdef DEBUG
 	CC=clang++
+	ASAN_OPTIONS='detect_leaks=1'
 	FLAGS = -Wall -Wextra -fsanitize=address -DDEBUG=1 -g -std=c++98 -pedantic
 else
 	CC=c++

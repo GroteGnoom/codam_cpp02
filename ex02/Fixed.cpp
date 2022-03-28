@@ -53,10 +53,53 @@ Fixed &Fixed::operator=(const Fixed &other) {
 	return *this;
 }
 
+Fixed Fixed::operator/(const Fixed &other) {
+	return Fixed(this->toFloat() / other.toFloat());
+}
+
 Fixed Fixed::operator*(const Fixed &other) {
-	//std::cout << "mul float 1:" << this->toFloat() << std::endl;
-	//std::cout << "mul float 2:" << other.toFloat() << std::endl;
 	return Fixed(this->toFloat() * other.toFloat());
+}
+
+Fixed Fixed::operator+(const Fixed &other) {
+	return Fixed(this->toFloat() + other.toFloat());
+}
+
+Fixed Fixed::operator-(const Fixed &other) {
+	return Fixed(this->toFloat() - other.toFloat());
+}
+
+bool Fixed::operator<=(const Fixed &other) {
+	return this->toFloat() <= other.toFloat();
+}
+
+bool Fixed::operator>=(const Fixed &other) {
+	return this->toFloat() >= other.toFloat();
+}
+
+bool Fixed::operator<(const Fixed &other) {
+	return this->toFloat() < other.toFloat();
+}
+
+bool Fixed::operator>(const Fixed &other) {
+	return this->toFloat() > other.toFloat();
+}
+
+bool Fixed::operator!=(const Fixed &other) {
+	return this->toFloat() != other.toFloat();
+}
+bool Fixed::operator==(const Fixed &other) {
+	return this->toFloat() == other.toFloat();
+}
+Fixed &Fixed::operator--() {
+	_fp--;
+	return *this;
+}
+
+Fixed Fixed::operator--(int) {
+	Fixed tmp = *this;
+	_fp--;
+	return tmp;
 }
 
 Fixed &Fixed::operator++() {
@@ -96,6 +139,20 @@ const Fixed &Fixed::max(const Fixed &f1, const Fixed &f2) {
 
 Fixed &Fixed::max(Fixed &f1, Fixed &f2) {
 	if (f1.toFloat() < f2.toFloat()) {
+		return f2;
+	}
+	return f1;
+}
+
+const Fixed &Fixed::min(const Fixed &f1, const Fixed &f2) {
+	if (f1.toFloat() > f2.toFloat()) {
+		return f2;
+	}
+	return f1;
+}
+
+Fixed &Fixed::min(Fixed &f1, Fixed &f2) {
+	if (f1.toFloat() > f2.toFloat()) {
 		return f2;
 	}
 	return f1;
