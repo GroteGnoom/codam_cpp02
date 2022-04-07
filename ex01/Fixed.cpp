@@ -2,16 +2,6 @@
 #include <iostream>
 #include <cmath>
 
-/*
-void print_bits(Fixed a) {
-	int bits = a.getRawBits();
-	for (int i = 31; i >= 0; i--) {
-		std::cout << ((bits & 1 << i) >> i);
-	}
-	std::cout << std::endl;
-}
-*/
-
 Fixed::Fixed() {
 	std::cout << "Default constructor called" << std::endl;
 	setRawBits(0);
@@ -57,10 +47,12 @@ Fixed::~Fixed() {
 }
 
 int Fixed::getRawBits( void ) const {
+	std::cout << "getRawBits member function called" << std::endl;
 	return _fp;
 }
 
 void Fixed::setRawBits( int const raw) {
+	std::cout << "setRawBits member function called" << std::endl;
 	_fp = raw;
 }
 

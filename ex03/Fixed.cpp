@@ -13,7 +13,7 @@ void print_bits(Fixed a) {
 */
 
 Fixed::Fixed() {
-	//std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default constructor called" << std::endl;
 	setRawBits(0);
 }
 
@@ -42,12 +42,12 @@ int	Fixed::toInt( void ) const {
 }	
 
 Fixed::Fixed(const Fixed &fixed) {
-	//std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 	setRawBits(fixed.getRawBits());
 }
 
 Fixed &Fixed::operator=(const Fixed &other) {
-	//std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 	setRawBits(other.getRawBits());
 	return *this;
 }
@@ -113,14 +113,16 @@ Fixed Fixed::operator++(int) {
 }
 
 Fixed::~Fixed() {
-	//std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits( void ) const {
+	std::cout << "getRawBits member function called" << std::endl;
 	return _fp;
 }
 
 void Fixed::setRawBits( int const raw) const {
+	std::cout << "setRawBits member function called" << std::endl;
 	_fp = raw;
 }
 
