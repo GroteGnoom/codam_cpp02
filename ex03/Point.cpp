@@ -36,18 +36,24 @@ Fixed Point::get_x() const {
 	return _x;
 }
 
-Fixed det(Point const a, Point const b) {
-	return (a.get_x() * b.get_y() - a.get_y() * b.get_x());
+float cross(Point const a, Point const b) {
+	return (a.get_x().toFloat() * b.get_y().toFloat()
+			- a.get_y().toFloat() * b.get_x().toFloat());
 }
+
 
 bool bsp(Point const a, Point const b, Point const c, Point const point) {
-	Fixed r1;
-	Fixed r2;
-
-	Point b2(b - a);
-	Point c2(c - a);
-	r1 = (det(point, c2) - det(a, c2)) / det(b2,c2);
-	r2 = (det(a, b2) - det(point, b2) ) / det(b2,c2);
-
-	return (r1 > 0 && r2 > 0 && (r1 + r2) < 1);
+	Point atob = b - a;
+	Point btoc = c - b;
+	Point ctoa = a - c;
+	Point atop = point - a;
+	Point btop = point - b;
+	Point ctop = point - c;
+	float crossa = cross(atob, atop);
+	float crossb = cross(btoc, btop);
+	float crossc = cross(ctoa, ctop);
+	if ((crossa < 0 && crossb < 0 && crossc < 0) || (crossa > 0 && crossb > 0 && crossc > 0))
+		return true;
+	return false;
 }
+

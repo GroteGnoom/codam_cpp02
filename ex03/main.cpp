@@ -30,6 +30,10 @@ int main( void ) {
 	Point t32(3,3.99);
 	Point t33(3,4);
 
+	Point a4;
+	Point c4(0, 1);
+	Point b4(1, 0);
+	
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 
@@ -51,5 +55,13 @@ int main( void ) {
 	std::cout << bsp(a3,b3,c3,t31) << std::endl;
 	std::cout << bsp(a3,b3,c3,t32) << std::endl;
 	std::cout << bsp(a3,b3,c3,t33) << std::endl;
+
+	std::cout << "First triangle in reverse:" << std::endl;
+	std::cout << bsp(a4,b4,c4,t1) << std::endl;
+	std::cout << bsp(a4,b4,c4,t2) << std::endl;
+	std::cout << bsp(a4,b4,c4,t3) << std::endl;
+	std::cout << bsp(a4,b4,c4,t4) << std::endl;
+	std::cout << bsp(a4,b4,c4,t5) << std::endl;
+
 	return 0;
 }

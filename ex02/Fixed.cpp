@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 
+
 Fixed::Fixed() {
 	std::cout << "Default constructor called" << std::endl;
 	setRawBits(0);
